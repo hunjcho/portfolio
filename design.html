@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bespoke+Serif:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Bespoke Serif', serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+            color: black;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+        header, footer {
+            background: #013220;
+            height: 50px;
+            padding: 5px;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            z-index: 1000;
+        }
+        header { 
+            top: 0; 
+            justify-content: space-between;
+            padding-right: 20px;
+        }
+        .visitor-counter {
+            color: white;
+            font-size: 14px;
+        }
+        footer { bottom: 0; justify-content: center; color: white; }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            justify-content: center;
+        }
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 700px;
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+        .profile-img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border: 3px solid #013220;
+            border-radius: 5px;
+        }
+        .text-container {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .separator {
+            width: 100%;
+            height: 1px;
+            background: #013220;
+            margin: 20px auto;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .toggle-button {
+            width: 150px;
+            background: white;
+            color: #013220;
+            padding: 10px 20px;
+            border: 2px solid #013220;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Bespoke Serif', serif;
+        }
+        .toggle-button.active {
+            background: #013220;
+            color: white;
+        }
+        .content-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .mini-box {
+            background: white;
+            padding: 10px;
+            margin: 5px auto;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #013220;
+        }
+    </style>
+    <script>
+        function toggleContent(sectionId, button) {
+            var sections = document.querySelectorAll('.content-container');
+            var buttons = document.querySelectorAll('.toggle-button');
+            
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            var selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+                button.classList.add('active');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="visitor-counter">
+            Total: <span id="total-visits">0</span> | Today: <span id="today-visits">0</span>
+        </div>
+    </header>
+    <div class="container">
+        <div class="center">
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+                <div class="text-container">
+                    <h2>Jayne Cho</h2>
+                    <p style="font-size: 0.9em;">gmail | <a href="https://www.linkedin.com/" target="_blank" style="text-decoration: none; color: inherit;">linkedin</a></p>
+                    <p>Hello! I'm a passionate developer specializing in web development and software engineering.</p>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <div class="button-container">
+                <button class="toggle-button" onclick="toggleContent('experience-container', this)">Experience</button>
+                <button class="toggle-button" onclick="toggleContent('project-container', this)">Project</button>
+                <button class="toggle-button" onclick="toggleContent('career-container', this)">Career</button>
+            </div>
+            <div id="experience-container" class="content-container">
+                <div class="mini-box"><h3>Experience 1</h3><p>Experience experience</p></div>
+                <div class="mini-box"><h3>Experience 2</h3><p>Experience experience</p></div>
+                <div class="mini-box"><h3>Experience 3</h3><p>Experience experience</p></div>
+                <div class="mini-box"><h3>Experience 4</h3><p>Experience experience</p></div>
+                <div class="mini-box"><h3>Experience 5</h3><p>Experience experience</p></div>
+            <div id="project-container" class="content-container">
+                <div class="mini-box"><h3>Project 1</h3><p>Project project</p></div>
+                <div class="mini-box"><h3>Project 2</h3><p>Project project</p></div>
+                <div class="mini-box"><h3>Project 3</h3><p>Project project</p></div>
+                <div class="mini-box"><h3>Project 4</h3><p>Project project</p></div>
+                <div class="mini-box"><h3>Project 5</h3><p>Project project</p></div>
+            </div>
+            <div id="career-container" class="content-container">
+                <div class="mini-box"><h3>Career 1</h3><p>Career career</p></div>
+                <div class="mini-box"><h3>Career 2</h3><p>Career career</p></div>
+                <div class="mini-box"><h3>Career 3</h3><p>Career career</p></div>
+                <div class="mini-box"><h3>Career 4</h3><p>Career career</p></div>
+                <div class="mini-box"><h3>Career 5</h3><p>Career career</p></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Jayne Cho. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
